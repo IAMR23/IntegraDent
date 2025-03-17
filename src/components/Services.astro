@@ -1,0 +1,167 @@
+<div class="container">
+  <h1 class="title">Quienes Somos</h1>
+
+  <div class="cards-container">
+    <div class="card">
+      <div class="icon-container">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="48"
+          height="48"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+          ></path>
+        </svg>
+      </div>
+      <div class="card-content">
+        <h2>Servicio</h2>
+        <p>Somos una familia de especialistas odontólogos</p>
+        <p class="highlight">Tienes una sola vida para Sonreír</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon-container">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="48"
+          height="48"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </div>
+      <div class="card-content">
+        <h2>Confianza</h2>
+        <p>
+          Brindamos un servicio de atención exclusiva y de calidad, dandoles
+          confianza y seguridad de que están en las mejores manos cuando se
+          trata del cuidado bucal.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="icon-container">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="48"
+          height="48"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      </div>
+      <div class="card-content">
+        <h2>Calidad</h2>
+        <p>
+          Somos una familia de especialistas altamente calificados, con vocación
+          formativa en el área de la salud bucal con una visión innovadora para
+          ofrecer el mejor servicio
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+  }
+
+  .title {
+    text-align: center;
+    color: #333;
+    font-size: 36px;
+    margin-bottom: 50px;
+    font-weight: 600;
+  }
+
+  .cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    flex: 1;
+    min-width: 300px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .icon-container {
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .card-content h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .card-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .highlight {
+    font-style: italic;
+    color: #444;
+  }
+
+  @media (max-width: 768px) {
+    .cards-container {
+      flex-direction: column;
+    }
+
+    .card {
+      min-width: 100%;
+    }
+  }
+</style>

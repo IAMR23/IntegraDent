@@ -1,0 +1,124 @@
+---
+
+---
+
+<header id="navbar" class="fixed w-full transition-all duration-300 z-50">
+  <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="flex items-center">
+      <img
+        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiG6KCDaPkPbAb-wJLLMs5aIzZ5SopgN_akL3nju63Xbwj-JzWP7bdNZilTm7fqT7WSgc0u-MzKoZL7gcYsaTDv8CNl1JMeyGS6DozkbiLMvu5_fDMhZYvFZ2eiSvPhEh-tqyB_m_1sE-JaTqhd0kT7dvxX6om1gjP5BjenuD4vgIeijPhHs6gSrnOaUQ/s320/IntegraDent.png"
+        alt=""
+        srcset=""
+      />
+      <a href="/" class="text-xl font-bold"></a>
+    </div>
+
+    <!-- Menú para pantallas grandes -->
+    <div class="hidden md:flex space-x-8 font-bold text-white">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/perfil" class="nav-link">Perfil</a>
+      <a href="/servicios" class="nav-link">Servicios</a>
+      <a href="/escribeme" class="nav-link">Escríbeme</a>
+      <a href="/informacion" class="nav-link">Información</a>
+    </div>
+
+    <!-- Botón hamburguesa para móviles -->
+    <button id="menu-toggle" class="md:hidden flex items-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- Menú móvil desplegable -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-white bg-opacity-90 backdrop-blur-sm"
+  >
+    <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+      <a href="/" class="nav-link py-2">Home</a>
+      <a href="/perfil" class="nav-link py-2">Perfil</a>
+      <a href="/servicios" class="nav-link py-2">Servicios</a>
+      <a href="/escribeme" class="nav-link py-2">Escríbeme</a>
+      <a href="/informacion" class="nav-link py-2">Información</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover:after {
+    width: 100%;
+  }
+
+  #navbar {
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(5px);
+  }
+
+  #navbar.scrolled {
+    background-color: rgba(56, 54, 54, 0.7);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+</style>
+
+<script>
+  // Manejo del menú móvil
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  }
+
+  // Efecto de transparencia al hacer scroll
+  const navbar = document.getElementById("navbar");
+
+  window.addEventListener("scroll", () => {
+    if (navbar) {
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    }
+  });
+
+  // Cerrar menú móvil al hacer clic en un enlace
+  const mobileLinks = document.querySelectorAll("#mobile-menu .nav-link");
+
+  mobileLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (mobileMenu) {
+        mobileMenu.classList.add("hidden");
+      }
+    });
+  });
+</script>
