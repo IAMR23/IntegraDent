@@ -1,0 +1,76 @@
+---
+import Footer from "../components/Footer.astro";
+import ListaServices from "../components/ListaServices.astro";
+import NavBar from "../components/NavBar.astro";
+import Whatsapp from "../components/Whatsapp.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Odontepediatria">
+  <NavBar />
+
+  <div class="p-14 bg-black"></div>
+
+  <div class="w-full py-16 px-4 md:px-8 overflow-hidden">
+    <div
+      class="container mx-auto max-w-6xl flex flex-col md:flex-row items-center gap-12"
+    >
+      <!-- Imagen con decoraciones -->
+      <div class="relative flex-1 flex justify-center">
+        <!-- Círculos decorativos -->
+        <div
+          class="absolute w-64 h-64 border border-black rounded-full -bottom-10 -left-10 md:-left-0"
+        >
+        </div>
+        <div
+          class="absolute w-80 h-80 border border-black rounded-full -bottom-20 -left-20 md:-left-8"
+        >
+        </div>
+
+        <!-- Tarjeta flotante -->
+        <div
+          class="relative z-10 transform rotate-6 hover:rotate-0 transition-transform duration-500 shadow-2xl max-w-xs"
+        >
+          <img
+            src="./Odontepediatria.webp"
+            alt="Odontepediatria"
+            class="object-cover rounded-lg"
+          />
+        </div>
+      </div>
+
+      <!-- Texto y botón -->
+      <div
+        class="flex-1 flex flex-col items-center md:items-start text-center md:text-left"
+      >
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Odontepediatría</h2>
+
+        <p class="text-gray-600 leading-relaxed mb-6">
+          Aquí va una breve descripción del bruxismo y su tratamiento.
+        </p>
+
+        <a
+          href="#"
+          class="inline-flex items-center bg-black border border-blue-500 hover:bg-blue-900 text-white font-medium py-3 px-6 rounded-full transition-colors duration-300"
+        >
+          Contáctame
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 ml-2"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </a>
+      </div>
+      <ListaServices />
+    </div>
+  </div>
+
+  <Whatsapp />
+  <Footer />
+</Layout>

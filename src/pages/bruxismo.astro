@@ -1,7 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
-import NavBar from "../components/NavBar.astro";
 import ListaServices from "../components/ListaServices.astro";
+import NavBar from "../components/NavBar.astro";
 import Whatsapp from "../components/Whatsapp.astro";
 import Layout from "../layouts/Layout.astro";
 ---
@@ -32,9 +32,9 @@ import Layout from "../layouts/Layout.astro";
           class="relative z-10 transform rotate-6 hover:rotate-0 transition-transform duration-500 shadow-2xl max-w-xs"
         >
           <img
-            src="./bruxismo.jpeg"
-            alt="Bruxismo"
-            class="w-full object-cover rounded-lg"
+            src="./bruxismo.webp"
+            alt="bruxismo"
+            class="object-cover rounded-lg"
           />
         </div>
       </div>
@@ -46,12 +46,15 @@ import Layout from "../layouts/Layout.astro";
         <h2 class="text-3xl md:text-4xl font-bold mb-6">Bruxismo</h2>
 
         <p class="text-gray-600 leading-relaxed mb-6">
-          Aquí va una breve descripción del bruxismo y su tratamiento.
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore iure
+          odit earum nostrum voluptatum sed, dicta harum rerum provident iste
+          dolorem voluptates nemo pariatur ad obcaecati consequatur cumque
+          veniam quia?
         </p>
 
         <a
           href="#"
-          class="inline-flex items-center bg-black border border-blue-500 hover:bg-blue-900 text-white font-medium py-3 px-6 rounded-full transition-colors duration-300"
+          class="items-end inline-flex bg-black border border-blue-500 hover:bg-blue-900 text-white font-medium py-3 px-6 rounded-full transition-colors duration-300"
         >
           Contáctame
           <svg
@@ -67,12 +70,10 @@ import Layout from "../layouts/Layout.astro";
           </svg>
         </a>
       </div>
+      <ListaServices />
     </div>
   </div>
 
-  <Whatsapp
-    phoneNumber="593987532398"
-    message=`Hola, me gustaría obtener más información sobre el tratamiento de Bruxismo`
-  />
+  <Whatsapp />
   <Footer />
 </Layout>

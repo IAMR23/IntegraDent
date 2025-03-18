@@ -1,16 +1,8 @@
 ---
 // WhatsAppButton.astro
 
-// Props (opcional, puedes definirlas directamente en el componente)
-export interface Props {
-  phoneNumber: string;
-  message: string;
-}
-
-const {
-  phoneNumber = "1234567890",
-  message = "Hola, me gustaría obtener más información.",
-} = Astro.props;
+const phoneNumber = "593987532398";
+const message = "Hola, me gustaría obtener más información.";
 
 // Codifica el mensaje para que sea válido en una URL
 const encodedMessage = encodeURIComponent(message);

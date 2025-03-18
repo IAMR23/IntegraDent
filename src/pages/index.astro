@@ -1,5 +1,5 @@
 ---
-import Contact from "../components/Contact.astro";
+import Form from "../components/Form.astro";
 import Footer from "../components/Footer.astro";
 import NavBar from "../components/NavBar.astro";
 import Perfil from "../components/Perfil.astro";
@@ -25,7 +25,7 @@ import Whatsapp from "../components/Whatsapp.astro";
     <Services />
   </div>
 
-  <Contact />
+  <Form />
 
   <div class="flex justify-center items-center p-10">
     <iframe
@@ -39,9 +39,6 @@ import Whatsapp from "../components/Whatsapp.astro";
       allowfullscreen></iframe>
   </div>
 
-  <Whatsapp
-    phoneNumber="593987532398"
-    message="Hola, me gustaría obtener más información."
-  />
+  <Whatsapp />
   <Footer />
 </Layout>
