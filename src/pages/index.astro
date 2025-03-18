@@ -3,22 +3,45 @@ import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 import NavBar from "../components/NavBar.astro";
 import Perfil from "../components/Perfil.astro";
-import Principal from "../components/Principal.astro";
-import Services from "../components/Services.astro";
+import QuienesSomos from "../components/QuienesSomos.astro";
 import Banner from "../components/Banner.astro";
 import Layout from "../layouts/Layout.astro";
-import Gallery from "../components/Gallery.astro";
+import Services from "../components/Services.astro";
+import Perfiles from "../components/Perfiles.astro";
+import Whatsapp from "../components/Whatsapp.astro";
 ---
 
 <Layout title="IntegraDent">
   <NavBar />
-  <Banner />
-  <!-- Card principal -->
 
+  <section id="home">
+    <Banner />
+  </section>
   <Perfil />
-  <Services />
-  <Gallery />
+  <Perfiles />
+  <QuienesSomos />
+
+  <div id="servicios">
+    <Services />
+  </div>
 
   <Contact />
+
+  <div class="flex justify-center items-center p-10">
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/2GBxkyEcDEA?si=1SNECv3svbnUUF66"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen></iframe>
+  </div>
+
+  <Whatsapp
+    phoneNumber="593987532398"
+    message="Hola, me gustaría obtener más información."
+  />
   <Footer />
 </Layout>
