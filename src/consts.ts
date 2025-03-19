@@ -43,3 +43,7 @@ export const services = [
     { img: "./protesisFija.webp", title: "Protesis Fija", link: "./protesis" },
     { img: "./endodoncia.webp", title: "Endodoncia", link: "./endodoncia" },
   ];
+
+
+  export const FBURL = "https://www.facebook.com/dralexandrafierro/"
+  export const INS = "https://www.instagram.com/draalexandrafierro/"
