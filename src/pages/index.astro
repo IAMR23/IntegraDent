@@ -9,6 +9,7 @@ import Layout from "../layouts/Layout.astro";
 import Services from "../components/Services.astro";
 import Perfiles from "../components/Perfiles.astro";
 import Whatsapp from "../components/Whatsapp.astro";
+import Video from "../components/Video.astro";
 ---
 
 <Layout title="IntegraDent">
@@ -23,24 +24,12 @@ import Whatsapp from "../components/Whatsapp.astro";
   </section>
 
   <QuienesSomos />
-
   <div id="servicios">
     <Services />
   </div>
-
   <Form />
 
-  <div class="flex justify-center items-center p-10">
-    <iframe
-      width="560"
-      height="315"
-      src="https://www.youtube.com/embed/2GBxkyEcDEA?si=1SNECv3svbnUUF66"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen></iframe>
-  </div>
+  <Video />
 
   <Whatsapp />
   <Footer />
