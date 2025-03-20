@@ -1,170 +1,145 @@
 ---
-// DoctorCarousel.astro
+const perfiles = [
+  {
+    nombre: "Dra. Alexandra Fierro",
+    especialidad: "Especialista en Diseño y Sonrisa",
+    img: "./perfil.webp",
+  },
+  {
+    nombre: "Dra. Andrea Silva",
+    especialidad: "Ortodoncista",
+    img: "./andreaOrtodoncista.webp",
+  },
+  {
+    nombre: "Dr. Juan Francisco Silva",
+    especialidad: "Implantólogo - Periodonsista",
+    img: "./juanf.webp",
+  },
+];
 ---
 
-<div
-  class="w-full bg-gray-800 min-h-screen flex flex-col justify-center items-center relative overflow-hidden"
->
-  <!-- Carrusel -->
-  <div class="w-full max-w-4xl mx-auto px-4">
-    <!-- Slide 1 - Visible -->
-    <div class="flex flex-col items-center py-16 text-center" id="slide-1">
-      <div
-        class="rounded-full border-2 border-white w-40 h-40 overflow-hidden mb-6"
-      >
-        <img
-          src="/api/placeholder/160/160"
-          alt="Doctora Alexandra Fierro"
-          class="w-full h-full object-cover"
-        />
-      </div>
-      <h2 class="text-white text-2xl md:text-3xl font-medium mb-3">
-        Especialista en Diseño de Sonrisa
-      </h2>
-      <h3 class="text-yellow-400 text-xl font-medium">Dra. Alexandra Fierro</h3>
+<div class="testimonial-carousel-container">
+  <div class="swiper testimonialSwiper">
+    <div class="swiper-wrapper py-10">
+      <!-- Slide 1 -->
+      {
+        perfiles.map((perfil) => (
+          <div class="swiper-slide">
+            <div class="testimonial flex justify-center items-center flex-col">
+              <img class="testimonial-avatar" src={perfil.img} />
+              <p class="testimonial-quote">{perfil.especialidad}</p>
+              <span class="text-yellow-500 font-bold">{perfil.nombre}</span>
+            </div>
+          </div>
+        ))
+      }
     </div>
 
-    <!-- Slide 2 - Oculto -->
-    <div class="hidden flex-col items-center py-16 text-center" id="slide-2">
-      <div
-        class="rounded-full border-2 border-white w-40 h-40 overflow-hidden mb-6"
-      >
-        <img
-          src="/api/placeholder/160/160"
-          alt="Dr. Carlos Méndez"
-          class="w-full h-full object-cover"
-        />
-      </div>
-      <h2 class="text-white text-2xl md:text-3xl font-medium mb-3">
-        Especialista en Ortodoncia
-      </h2>
-      <h3 class="text-yellow-400 text-xl font-medium">Dr. Carlos Méndez</h3>
-    </div>
+    <div class="swiper-pagination relative"></div>
 
-    <!-- Slide 3 - Oculto -->
-    <div class="hidden flex-col items-center py-16 text-center" id="slide-3">
-      <div
-        class="rounded-full border-2 border-white w-40 h-40 overflow-hidden mb-6"
-      >
-        <img
-          src="/api/placeholder/160/160"
-          alt="Dra. María López"
-          class="w-full h-full object-cover"
-        />
-      </div>
-      <h2 class="text-white text-2xl md:text-3xl font-medium mb-3">
-        Especialista en Odontopediatría
-      </h2>
-      <h3 class="text-yellow-400 text-xl font-medium">Dra. María López</h3>
-    </div>
-  </div>
-
-  <!-- Botones de navegación -->
-  <button
-    class="absolute left-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-30 rounded-full p-3 hover:bg-opacity-50 transition-all"
-    id="prev-btn"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="white"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <polyline points="15 18 9 12 15 6"></polyline>
-    </svg>
-  </button>
-  <button
-    class="absolute right-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-30 rounded-full p-3 hover:bg-opacity-50 transition-all"
-    id="next-btn"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="white"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <polyline points="9 18 15 12 9 6"></polyline>
-    </svg>
-  </button>
-
-  <!-- Indicadores -->
-  <div class="flex space-x-2 mt-6">
-    <button class="w-3 h-3 rounded-full bg-white opacity-60" data-slide="1"
-    ></button>
-    <button class="w-3 h-3 rounded-full bg-white opacity-60" data-slide="2"
-    ></button>
-    <button class="w-3 h-3 rounded-full bg-yellow-400" data-slide="3"></button>
+    <!-- Navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
   </div>
 </div>
 
+<style>
+  .testimonial-carousel-container {
+    background: url("./cirugiaDental.webp") no-repeat center bottom;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    padding: 100px 0;
+  }
+
+  .testimonial-carousel-container:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    background: #000;
+    z-index: 0;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .testimonial-avatar {
+    border-radius: 50%;
+    margin-bottom: 20px;
+    height: 150px;
+  }
+
+  .testimonial-quote {
+    display: block;
+    font-size: 24px;
+    padding: 10px 0;
+    line-height: 1.4;
+    color: #fff;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .swiper-pagination-bullet {
+    background: #fff;
+    opacity: 0.5;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #ff4500; /* Color destacado, puedes cambiarlo */
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #fff;
+  }
+
+  .swiper-container-horizontal > .swiper-pagination-bullets {
+    bottom: 0px;
+  }
+</style>
+
 <script>
+  import Swiper from "swiper";
+  import { Navigation, Pagination, Autoplay } from "swiper/modules";
+  import "swiper/css";
+  import "swiper/css/navigation";
+  import "swiper/css/pagination";
+
+  // Initialize Swiper
   document.addEventListener("DOMContentLoaded", () => {
-    const slides = document.querySelectorAll('[id^="slide-"]');
-    const indicators = document.querySelectorAll("[data-slide]");
-    const prevBtn = document.getElementById("prev-btn");
-    const nextBtn = document.getElementById("next-btn");
-    let currentSlide = 1;
-    const totalSlides = slides.length;
-    let interval;
-
-    function showSlide(slideNumber: any) {
-      slides.forEach((slide, index) => {
-        slide.classList.add("hidden");
-        slide.classList.remove("flex");
-        if (indicators[index]) {
-          indicators[index].classList.remove("bg-yellow-400");
-          indicators[index].classList.add("bg-white", "opacity-60");
-        }
-      });
-      slides[slideNumber - 1].classList.remove("hidden");
-      slides[slideNumber - 1].classList.add("flex");
-      indicators[slideNumber - 1].classList.remove("bg-white", "opacity-60");
-      indicators[slideNumber - 1].classList.add("bg-yellow-400");
-      currentSlide = slideNumber;
-    }
-
-    function nextSlide() {
-      let nextSlide = currentSlide + 1;
-      if (nextSlide > totalSlides) nextSlide = 1;
-      showSlide(nextSlide);
-    }
-
-    function startAutoSlide() {
-      interval = setInterval(nextSlide, 3000);
-    }
-
-    if (prevBtn)
-      prevBtn.addEventListener("click", () => {
-        let prevSlide = currentSlide - 1;
-        if (prevSlide < 1) prevSlide = totalSlides;
-        showSlide(prevSlide);
-      });
-
-    if (nextBtn)
-      nextBtn.addEventListener("click", () => {
-        nextSlide();
-      });
-
-    indicators.forEach((indicator) => {
-      indicator.addEventListener("click", () => {
-        const slideNumber = parseInt(
-          indicator.getAttribute("data-slide") ?? "1"
-        );
-        showSlide(slideNumber);
-      });
+    const swiper = new Swiper(".testimonialSwiper", {
+      modules: [Navigation, Pagination, Autoplay],
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
     });
-
-    showSlide(1);
-    startAutoSlide();
   });
 </script>
