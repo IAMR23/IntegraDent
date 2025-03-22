@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
-import ListaServices from "../components/ListaServices.astro";
+import Gallery1 from "../components/Gallery1.astro";
+import ListaServices1 from "../components/ListaServices1.astro";
 import NavBar from "../components/NavBar.astro";
 import Whatsapp from "../components/Whatsapp.astro";
 import Layout from "../layouts/Layout.astro";
@@ -11,22 +12,10 @@ import Layout from "../layouts/Layout.astro";
 
   <div class="p-14 bg-black"></div>
 
-  <div class="w-full py-16 px-4 md:px-8 overflow-hidden">
-    <div
-      class="container mx-auto max-w-6xl flex flex-col md:flex-row items-center gap-12"
-    >
-      <!-- Imagen con decoraciones -->
-      <div class="relative flex-1 flex justify-center">
-        <!-- Tarjeta flotante -->
-        <div
-          class="relative z-10 transform rotate-6 hover:rotate-0 transition-transform duration-500 shadow-2xl max-w-xs"
-        >
-          <img
-            src="./carillas.webp"
-            alt="carillas"
-            class="object-cover rounded-lg"
-          />
-        </div>
+  <div class="w-full py-16 px-4">
+    <div class="flex flex-col md:flex-row items-center gap-4">
+      <div class="flex-1">
+        <Gallery1 />
       </div>
 
       <div
@@ -39,7 +28,7 @@ import Layout from "../layouts/Layout.astro";
           El bruxismo es un trastorno en el que rechinas, crujes o aprietas los
           dientes. Si tienes bruxismo, es posible que, de manera inconsciente,
           aprietes los dientes cuando estás despierto (bruxismo diurno) o que
-          los aprietes o rechines mientras duermes (bruxismo nocturno)
+          los aprietes o rechines mientras duermes (bruxismo nocturno).
         </p>
 
         <span
@@ -47,9 +36,8 @@ import Layout from "../layouts/Layout.astro";
           indicados!</span
         >
       </div>
-
-      <ListaServices />
     </div>
+    <ListaServices1 />
   </div>
 
   <Whatsapp />

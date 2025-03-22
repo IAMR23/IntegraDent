@@ -1,0 +1,19 @@
+---
+import { services } from "../consts";
+import Button from "./Button.astro";
+---
+
+<div class="rounded-2xl shadow-lg my-5 p-5 bg-black">
+  <h1 class="text-white uppercase font-bold text-center">Servicios</h1>
+  <ul
+    class="flex flex-wrap text-center justify-center items-center bg-black gap-2 p-2"
+  >
+    {
+      services.map((service) => (
+        <li class="bg-black text-center h-10 min-w-[150px] flex justify-center items-center">
+          <Button link={service.link} servicio={service.title} />
+        </li>
+      ))
+    }
+  </ul>
+</div>

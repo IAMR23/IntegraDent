@@ -1,0 +1,127 @@
+---
+// src/pages/index.astro
+---
+
+<style>
+  .gallery-container {
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: wrap;
+  }
+
+  .main-image {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .main-image img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+  }
+
+  .thumbnails {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+  }
+
+  .thumbnail {
+    cursor: pointer;
+    height: 100px;
+    border-radius: 4px;
+    overflow: hidden;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+
+  .thumbnail.active {
+    opacity: 1;
+    box-shadow: 0 0 0 2px #3498db;
+  }
+
+  .thumbnail img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    .main-image {
+      height: 300px;
+    }
+
+    .thumbnails {
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+
+    .thumbnail {
+      height: 80px;
+    }
+  }
+</style>
+
+<div class="gallery-container">
+  <div class="flex md:flex-row gap-2">
+    <div class="thumbnail" data-src="./extraccionTerceros.webp">
+      <img src="./extraccionTerceros.webp" alt="Montañas con niebla" />
+    </div>
+    <div class="thumbnail" data-src="/perfil.webp">
+      <img src="/perfil.webp" alt="Oso polar" />
+    </div>
+    <div class="thumbnail" data-src="./extraccionTerceros.webp">
+      <img src="./extraccionTerceros.webp" alt="Montañas con niebla" />
+    </div>
+    <div class="thumbnail" data-src="/perfil.webp">
+      <img src="/perfil.webp" alt="Oso polar" />
+    </div>
+  </div>
+
+  <div class="main-image">
+    <img id="featured" src="./perfil.webp" alt="Imagen destacada" />
+  </div>
+  <div class="flex md:flex-row gap-2">
+    <div class="thumbnail" data-src="./extraccionTerceros.webp">
+      <img src="./extraccionTerceros.webp" alt="Montañas con niebla" />
+    </div>
+    <div class="thumbnail" data-src="/perfil.webp">
+      <img src="/perfil.webp" alt="Oso polar" />
+    </div>
+    <div class="thumbnail" data-src="./extraccionTerceros.webp">
+      <img src="./extraccionTerceros.webp" alt="Montañas con niebla" />
+    </div>
+    <div class="thumbnail" data-src="/perfil.webp">
+      <img src="/perfil.webp" alt="Oso polar" />
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const featured = document.getElementById("featured") as HTMLImageElement;
+      const thumbnails = document.querySelectorAll(".thumbnail");
+
+      thumbnails.forEach((thumbnail) => {
+        thumbnail.addEventListener("click", function (this: HTMLElement) {
+          // Actualizar imagen principal
+          const newSrc = this.getAttribute("data-src");
+          if (newSrc && featured) {
+            featured.src = newSrc;
+          }
+
+          // Actualizar estado activo
+          thumbnails.forEach((thumb) => {
+            thumb.classList.remove("active");
+          });
+          this.classList.add("active");
+        });
+      });
+    });
+  </script>
+</div>

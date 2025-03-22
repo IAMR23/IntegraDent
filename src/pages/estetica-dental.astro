@@ -1,5 +1,6 @@
 ---
 import Footer from "../components/Footer.astro";
+import Gallery1 from "../components/Gallery1.astro";
 import ListaServices from "../components/ListaServices.astro";
 import NavBar from "../components/NavBar.astro";
 import Whatsapp from "../components/Whatsapp.astro";
@@ -17,16 +18,6 @@ import Layout from "../layouts/Layout.astro";
     >
       <!-- Imagen con decoraciones -->
       <div class="relative flex-1 flex justify-center">
-        <!-- Círculos decorativos -->
-        <div
-          class="absolute w-64 h-64 border border-black rounded-full -bottom-10 -left-10 md:-left-0"
-        >
-        </div>
-        <div
-          class="absolute w-80 h-80 border border-black rounded-full -bottom-20 -left-20 md:-left-8"
-        >
-        </div>
-
         <!-- Tarjeta flotante -->
         <div
           class="relative z-10 transform rotate-6 hover:rotate-0 transition-transform duration-500 shadow-2xl max-w-xs"
@@ -64,6 +55,7 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </div>
 
+  <Gallery1 />
   <Whatsapp />
   <Footer />
 </Layout>

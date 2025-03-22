@@ -1,3 +1,4 @@
+/* Este archivo contendra todas las rutas de los servicios */
 export const services = [
     {
       img: "./esteticaDental.webp",
@@ -23,13 +24,8 @@ export const services = [
     { img: "./carillas.webp", title: "Carillas", link: "./carillas" },
     { img: "./diseñoSonrisa.webp", title: "Diseño de Sonrisa", link: "/sonrisa" },
     {
-      img: "./enciasSangrantes.webp",
-      title: "Encías Sangrantes",
-      link: "/encias",
-    },
-    {
       img: "./extraccionTerceros.webp",
-      title: "Extracción de Terceros",
+      title: "Extracción de Muelas del Juicio",
       link: "/extraccion",
     },
     { img: "./implante1.webp", title: "Implantes Dentales", link: "/implantes" },
@@ -41,7 +37,8 @@ export const services = [
     { img: "./odontologia.webp", title: "Odontología", link: "./odontologia" },
     { img: "./allonfour.webp", title: "All on Four", link: "./allonfour" },
     { img: "./protesisFija.webp", title: "Protesis Fija", link: "./protesis" },
-    { img: "./endodoncia.webp", title: "Endodoncia", link: "./endodoncia" },
+    /* Nuevos 21-03-2025 */
+    { img: "./Ortodoncia.webp", title: "Ortodoncia-RO", link: "./Ortodoncia" },
   ];
 
 

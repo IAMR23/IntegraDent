@@ -1,12 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  content: [
+    "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
+    "./node_modules/flyonui/dist/js/*.js",
+  ],
   theme: {
-    extend: {
-      colors: {
-        "mi-coffe": "#B5985C", // Código hexadecimal
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };
