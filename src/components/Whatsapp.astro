@@ -13,7 +13,7 @@ const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
   .whatsapp-button {
     position: fixed;
     right: 20px;
-    bottom: 40px;
+    bottom: 80px;
     background-color: #25d366;
     color: white;
     border: none;
@@ -42,6 +42,7 @@ const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
   <button class="whatsapp-button">
     <img
+      width="100px"
       src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
       alt="WhatsApp Icon"
     />

@@ -27,7 +27,9 @@ import { FBURL, INS } from "../consts";
       <a
         href="https://api.whatsapp.com/send/?phone=593987532398"
         target="_blank"
-        ><h3 class="contact-title">Teléfono</h3>
+        ><h3 class="text-xl font-bold">
+          <span class="font-bold text-yellow-500">Telé</span>fono
+        </h3>
         <p class="contact-text">+593 987 532 398</p></a
       >
     </div>
@@ -56,7 +58,9 @@ import { FBURL, INS } from "../consts";
       <a
         href="https://www.google.com/maps/dir//IntegraDent+Odontolog%C3%ADa+Integral+y+Est%C3%A9tica+Valladolid+n24-462+y+Francisco+Salazar+Edif.+San+Agustin.+Planta+Baja+Quito+170725/@-0.2069934,-78.4828578,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x91d59b81a66c5571:0x3f66c323e799caf2!2m2!1d-78.4828578!2d-0.2069934"
         target="_blank"
-        ><h3 class="contact-title">Dirección</h3>
+        ><h3 class="text-xl font-bold">
+          <span class="font-bold text-yellow-500">Dire</span>cción
+        </h3>
         <p class="contact-text">
           Valladolid n24-462 y Francisco Salazar Edif. San
         </p>
@@ -88,7 +92,9 @@ import { FBURL, INS } from "../consts";
         href="mailto:integradentoficial@gmail.com?subject=Atencion%20al%20cliente%"
         target="_blank"
       >
-        <h3 class="contact-title">Email</h3>
+        <h3 class="text-xl font-bold">
+          <span class="font-bold text-yellow-500">Em</span>ail
+        </h3>
         <p class="contact-text">integradentoficial@gmail.com</p></a
       >
     </div>
@@ -98,36 +104,28 @@ import { FBURL, INS } from "../consts";
 <footer class="footer bg-black">
   <div class="footer-content">
     <div class="footer-copyright">
-      <p>Creado por SoyDev | Integra Dent</p>
+      <p>© 2025 - Creado por IAMRS23</p>
     </div>
 
-    <div class="footer-social">
+    <div class="flex justify-center items-center">
       <a href={FBURL} class="social-link" target="_blank">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="white"
-        >
-          <path
-            d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-          ></path>
-        </svg>
+        <img
+          class="hover:scale-150"
+          src="./fb.png"
+          alt=""
+          srcset=""
+          width="20px"
+        />
       </a>
 
       <a href={INS} class="social-link" target="_blank">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="18"
-          height="18"
-          viewBox="0 0 24 24"
-          fill="white"
-        >
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-        </svg>
+        <img
+          class="hover:scale-150"
+          src="./instagram.png"
+          alt=""
+          srcset=""
+          width="40px"
+        />
       </a>
     </div>
   </div>
@@ -174,12 +172,6 @@ import { FBURL, INS } from "../consts";
     color: #ffffff;
   }
 
-  .contact-title {
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 15px;
-  }
-
   .contact-text {
     font-size: 14px;
     color: #cccccc;
@@ -207,7 +199,6 @@ import { FBURL, INS } from "../consts";
 
   .footer-social {
     display: flex;
-    gap: 15px;
   }
 
   .social-link {
