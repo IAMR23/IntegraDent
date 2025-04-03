@@ -1,17 +1,30 @@
 ---
-const services = [
+const esteticaDental = [
   {
     img: "./et.webp",
-    title: "Estética Dental",
+    title: "Caso 1 ",
     link: "/estetica-dental",
   },
   {
     img: "./ed3.webp",
-    title: "Cirugia Dental",
-    link: "/cirugia-dental",
+    title: "Caso 2 ",
+    link: "/estetica-dental",
   },
   {
     img: "./et4.webp",
+    title: "Caso 3",
+    link: "/estetica-dental",
+  },
+];
+
+const services = [
+  {
+    img: "./cirugiaDental.webp",
+    title: "Cirugía Dental",
+    link: "/cirugia-dental",
+  },
+  {
+    img: "./radiografia.webp",
     title: "Radiografías y Tomografías Dentales",
     link: "/radiografias",
   },
@@ -49,6 +62,27 @@ const servicesOcultos = [
   <p class="section-subtitle">
     Ofrecemos los siguientes servicios para tu salud dental
   </p>
+
+  <div class="services-grid" id="services-grid">
+    {
+      esteticaDental.map((service) => (
+        <div class="service-card">
+          <a href={service.link}>
+            <div class="service-image">
+              <img src={service.img} alt={service.title} />
+              <div class="service-overlay">
+                <h3>{service.title}</h3>
+              </div>
+              <div class="service-phone">
+                <span class="phone-dot" />
+                <span class="phone-number">IntegraDent</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      ))
+    }
+  </div>
 
   <div class="services-grid" id="services-grid">
     {
