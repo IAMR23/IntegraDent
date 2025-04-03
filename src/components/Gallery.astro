@@ -1,40 +1,137 @@
-<div class="flex flex-col justify-center items-center py-5 my-10 glass-bg">
-  <h2 class="text-3xl md:text-4xl font-bold py-5 shadow-sm">
-    Nuestros Casos✨
-  </h2>
+---
+import Gallery1 from "./Gallery1.astro";
 
-  <div class="gallery">
-    <img src="./bruxismo.webp" alt="Imagen 1" />
-    <img src="./bruxismo.webp" alt="Imagen 1" />
-    <img src="./bruxismo.webp" alt="Imagen 1" />
-    <img src="./bruxismo.webp" alt="Imagen 1" />
+interface Image {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  id: string;
+  title: string;
+  images: Image[];
+  hidden?: boolean;
+}
+
+const { id, title, images, hidden = false } = Astro.props;
+---
+
+<div id={id} class={`gallery-container ${hidden ? "hidden" : ""}`}>
+  <h2 class="text-2xl font-semibold mb-6 text-center">{title}</h2>
+  <div class="relative overflow-hidden">
+    <div class="gallery-slider flex transition-transform duration-500">
+      {
+        images.map((image, index) => (
+          <div class="gallery-slide min-w-full">
+            <Gallery1 />
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="gallery-dots flex justify-center mt-4 gap-2">
+      {
+        images.map((_, index) => (
+          <button
+            class={`gallery-dot w-3 h-3 rounded-full bg-gray-300 ${index === 0 ? "bg-cyan-600" : ""}`}
+            data-index={index}
+          />
+        ))
+      }
+    </div>
   </div>
 </div>
 
+<script define:vars={{ id, images }}>
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById(id);
+    if (!container) return;
+
+    const slider = container.querySelector(".gallery-slider");
+    const slides = container.querySelectorAll(".gallery-slide");
+    const prevBtn = container.querySelector(".gallery-prev");
+    const nextBtn = container.querySelector(".gallery-next");
+    const dots = container.querySelectorAll(".gallery-dot");
+
+    let currentIndex = 0;
+    const slideCount = slides.length;
+
+    // Función para actualizar la posición del slider
+    function updateSlider() {
+      if (slider) {
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+
+      // Actualizar los dots
+      dots.forEach((dot, index) => {
+        if (index === currentIndex) {
+          dot.classList.add("bg-cyan-600");
+          dot.classList.remove("bg-gray-300");
+        } else {
+          dot.classList.remove("bg-cyan-600");
+          dot.classList.add("bg-gray-300");
+        }
+      });
+    }
+
+    // Configurar autoplay
+    let autoplayInterval;
+
+    function startAutoplay() {
+      autoplayInterval = setInterval(() => {
+        currentIndex = (currentIndex + 1) % slideCount;
+        updateSlider();
+      }, 5000); // Cambiar cada 5 segundos
+    }
+
+    function stopAutoplay() {
+      clearInterval(autoplayInterval);
+    }
+
+    // Iniciar autoplay
+    startAutoplay();
+
+    // Event listeners para los botones
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        stopAutoplay();
+        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+        updateSlider();
+        startAutoplay();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        stopAutoplay();
+        currentIndex = (currentIndex + 1) % slideCount;
+        updateSlider();
+        startAutoplay();
+      });
+    }
+
+    // Event listeners para los dots
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        stopAutoplay();
+        currentIndex = index;
+        updateSlider();
+        startAutoplay();
+      });
+    });
+
+    // Pausar autoplay cuando el mouse está sobre la galería
+    container.addEventListener("mouseenter", stopAutoplay);
+    container.addEventListener("mouseleave", startAutoplay);
+  });
+</script>
+
 <style>
-  /* Galería */
-  .gallery {
-    display: grid;
-    gap: 15px;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    width: 80%;
-    max-width: 900px;
+  .gallery-container {
+    transition: opacity 0.5s ease;
   }
 
-  .gallery img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.2); /* Sombra */
-
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-
-  .gallery img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  .hidden {
+    display: none;
   }
 </style>

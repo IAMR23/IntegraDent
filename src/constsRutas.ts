@@ -20,8 +20,8 @@ export const services = [
       title: "Rehabilitación Oral",
       link: "/rehabilitacion",
     },
-    { img: "./bruxismo.webp", title: "Bruxismo", link: "./bruxismo" },
-    { img: "./carillas.webp", title: "Carillas", link: "./carillas" },
+    { img: "./bruxismo.webp", title: "Bruxismo", link : "/bruxismo" },
+    { img: "./carillas.webp", title: "Carillas", link : "/carillas" },
     { img: "./diseñoSonrisa.webp", title: "Diseño de Sonrisa", link: "/sonrisa" },
     {
       img: "./extraccionTerceros.webp",
@@ -32,13 +32,15 @@ export const services = [
     {
       img: "./Odontepediatria.webp",
       title: "Odontepediatría",
-      link: "./odontepediatria",
+      link : "/odontepediatria",
     },
-    { img: "./odontologia.webp", title: "Odontología", link: "./odontologia" },
-    { img: "./allonfour.webp", title: "All on Four", link: "./allonfour" },
-    { img: "./protesisFija.webp", title: "Protesis Fija", link: "./protesis" },
+    { img: "./odontologia.webp", title: "Odontología", link : "/odontologia" },
+    { img: "./allonfour.webp", title: "All on Four", link : "/allonfour" },
+    { img: "./protesisFija.webp", title: "Protesis Fija", link : "/protesis" },
     /* Nuevos 21-03-2025 */
-    { img: "./Ortodoncia.webp", title: "Ortodoncia-RO", link: "./Ortodoncia" },
+    { img: "./Ortodoncia.webp", title: "Ortodoncia-RO", link : "/Ortodoncia" },
+    /* Cambios 02-04-2025 */
+    { img: "./Ortodoncia.webp", title: "Servicio de Docencia", link : "/servicio-docencia" },
   ];
 
 
