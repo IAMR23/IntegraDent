@@ -1,9 +1,13 @@
 ---
-const { link, servicio } = Astro.props;
+const { link, servicio, icono } = Astro.props;
 ---
 
-<a href={link} class="nav-link2 text-white font-extralight text-sm">
-  ✨{servicio}
+<a
+  href={link}
+  class="nav-link2 text-white font-extralight text-sm flex flex-row items-center"
+>
+  <img src={icono} alt={icono} srcset="" width="32px" />
+  {servicio}
 </a>
 
 <style>
