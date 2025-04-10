@@ -1,11 +1,10 @@
 ---
-import Footer from "../components/Footer.astro";
-import Gallery from "../components/Gallery.astro";
-import Gallery1 from "../components/Gallery1.astro";
-import ListaServices from "../components/ListaServices.astro";
-import NavBar from "../components/NavBar.astro";
-import Whatsapp from "../components/Whatsapp.astro";
-import Layout from "../layouts/Layout.astro";
+import Footer from "../../components/Footer.astro";
+import Gallery from "../../components/Gallery.astro";
+import ListaServices from "../../components/ListaServices.astro";
+import NavBar from "../../components/NavBar.astro";
+import Whatsapp from "../../components/Whatsapp.astro";
+import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="Estetica Dental">
@@ -14,15 +13,15 @@ import Layout from "../layouts/Layout.astro";
   <div class="p-14 bg-black"></div>
 
   <div class="w-full py-16 px-4 md:px-8 overflow-hidden">
-    <div
-      class="container mx-auto max-w-6xl flex flex-col md:flex-row items-center gap-12"
-    >
-      <Gallery1 />
+    <div class="flex flex-col md:flex-row items-center gap-12">
+      <div class="flex flex-1 justify-center items-center gap-2">
+        <Gallery />
+      </div>
 
       <div
         class="flex-1 flex flex-col items-center md:items-start text-center md:text-left gap-2"
       >
-        <h2 class="text-3xl md:text-4xl font-bold">Estetica Dental</h2>
+        <h2 class="text-3xl md:text-4xl font-bold">Caso 1 - Estetica Dental</h2>
 
         <span>#SonrisasRealesIntegradent</span>
         <p class="text-gray-600 leading-relaxed text-justify justify-normal">

@@ -1,137 +1,164 @@
----
-import Gallery1 from "./Gallery1.astro";
-
-interface Image {
-  src: string;
-  alt: string;
-}
-
-interface Props {
-  id: string;
-  title: string;
-  images: Image[];
-  hidden?: boolean;
-}
-
-const { id, title, images, hidden = false } = Astro.props;
----
-
-<div id={id} class={`gallery-container ${hidden ? "hidden" : ""}`}>
-  <h2 class="text-2xl font-semibold mb-6 text-center">{title}</h2>
-  <div class="relative overflow-hidden">
-    <div class="gallery-slider flex transition-transform duration-500">
-      {
-        images.map((image, index) => (
-          <div class="gallery-slide min-w-full">
-            <Gallery1 />
-          </div>
-        ))
-      }
-    </div>
-
-    <div class="gallery-dots flex justify-center mt-4 gap-2">
-      {
-        images.map((_, index) => (
-          <button
-            class={`gallery-dot w-3 h-3 rounded-full bg-gray-300 ${index === 0 ? "bg-cyan-600" : ""}`}
-            data-index={index}
-          />
-        ))
-      }
-    </div>
-  </div>
-</div>
-
-<script define:vars={{ id, images }}>
-  document.addEventListener("DOMContentLoaded", () => {
-    const container = document.getElementById(id);
-    if (!container) return;
-
-    const slider = container.querySelector(".gallery-slider");
-    const slides = container.querySelectorAll(".gallery-slide");
-    const prevBtn = container.querySelector(".gallery-prev");
-    const nextBtn = container.querySelector(".gallery-next");
-    const dots = container.querySelectorAll(".gallery-dot");
-
-    let currentIndex = 0;
-    const slideCount = slides.length;
-
-    // Función para actualizar la posición del slider
-    function updateSlider() {
-      if (slider) {
-        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-      }
-
-      // Actualizar los dots
-      dots.forEach((dot, index) => {
-        if (index === currentIndex) {
-          dot.classList.add("bg-cyan-600");
-          dot.classList.remove("bg-gray-300");
-        } else {
-          dot.classList.remove("bg-cyan-600");
-          dot.classList.add("bg-gray-300");
-        }
-      });
-    }
-
-    // Configurar autoplay
-    let autoplayInterval;
-
-    function startAutoplay() {
-      autoplayInterval = setInterval(() => {
-        currentIndex = (currentIndex + 1) % slideCount;
-        updateSlider();
-      }, 5000); // Cambiar cada 5 segundos
-    }
-
-    function stopAutoplay() {
-      clearInterval(autoplayInterval);
-    }
-
-    // Iniciar autoplay
-    startAutoplay();
-
-    // Event listeners para los botones
-    if (prevBtn) {
-      prevBtn.addEventListener("click", () => {
-        stopAutoplay();
-        currentIndex = (currentIndex - 1 + slideCount) % slideCount;
-        updateSlider();
-        startAutoplay();
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener("click", () => {
-        stopAutoplay();
-        currentIndex = (currentIndex + 1) % slideCount;
-        updateSlider();
-        startAutoplay();
-      });
-    }
-
-    // Event listeners para los dots
-    dots.forEach((dot, index) => {
-      dot.addEventListener("click", () => {
-        stopAutoplay();
-        currentIndex = index;
-        updateSlider();
-        startAutoplay();
-      });
-    });
-
-    // Pausar autoplay cuando el mouse está sobre la galería
-    container.addEventListener("mouseenter", stopAutoplay);
-    container.addEventListener("mouseleave", startAutoplay);
-  });
-</script>
-
+<!-- src/pages/index.astro -->
 <style>
   .gallery-container {
-    transition: opacity 0.5s ease;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2px;
   }
 
-  .hidden {
-    display: none;
+  .main-image {
+    width: 400px;
+    height: 400px;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .main-image img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .main-image img.active {
+    opacity: 1;
+  }
+
+  .thumbnail-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .thumbnail {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+    overflow: hidden;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+
+  .thumbnail.active {
+    opacity: 1;
+    box-shadow: 0 0 0 2px #3498db;
+  }
+
+  .thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 768px) {
+    .main-image {
+      height: 400px;
+    }
+
+    .thumbnail {
+      width: 80px;
+      height: 80px;
+    }
   }
 </style>
+
+<!-- Cambios -->
+<div class="gallery-container">
+  <div class="main-image">
+    <img id="featured1" src="/perfil.webp" alt="Imagen destacada" />
+    <img id="featured2" src="/extraccionTerceros.webp" alt="Imagen destacada" />
+  </div>
+
+  <div class="thumbnail-row">
+    <div class="thumbnail" data-src="/ed.webp">
+      <img src="/ed.webp" alt="Montañas con niebla" />
+    </div>
+
+    <div class="thumbnail" data-src="/ed1.webp">
+      <img src="/ed1.webp" alt="Montañas con niebla" />
+    </div>
+    <div class="thumbnail" data-src="/ed2.webp">
+      <img src="/ed2.webp" alt="Oso polar" />
+    </div>
+    <div class="thumbnail" data-src="/ed3.webp">
+      <img src="/ed3.webp" alt="Montañas con niebla" />
+    </div>
+    <div class="thumbnail" data-src="/ed4.webp">
+      <img src="/ed4.webp" alt="Oso polar" />
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const featured1 = document.getElementById(
+        "featured1"
+      ) as HTMLImageElement;
+      const featured2 = document.getElementById(
+        "featured2"
+      ) as HTMLImageElement;
+      const thumbnails = document.querySelectorAll(".thumbnail");
+      let currentIndex = 0;
+      const allThumbnails = Array.from(thumbnails);
+      let activeImage = featured1;
+      let inactiveImage = featured2;
+
+      // Función para actualizar la imagen principal y las miniaturas activas
+      function updateImage(index: number): void {
+        const newSrc = allThumbnails[index].getAttribute("data-src");
+        if (newSrc) {
+          // Intercambiar imágenes para el efecto de desvanecimiento
+          [activeImage, inactiveImage] = [inactiveImage, activeImage];
+
+          // Configurar la nueva imagen
+          inactiveImage.src = newSrc;
+
+          // Añadir y quitar clases para el efecto de transición
+          activeImage.classList.remove("active");
+          inactiveImage.classList.add("active");
+        }
+
+        // Actualizar estado activo de las miniaturas
+        allThumbnails.forEach((thumb) => {
+          thumb.classList.remove("active");
+        });
+        allThumbnails[index].classList.add("active");
+      }
+
+      // Activar la primera miniatura al cargar
+      updateImage(0);
+
+      // Configurar el cambio automático cada 5 segundos
+      function nextImage(): void {
+        currentIndex = (currentIndex + 1) % allThumbnails.length;
+        updateImage(currentIndex);
+      }
+
+      // Iniciar temporizador
+      let interval = setInterval(nextImage, 5000);
+
+      // Manejador de clics en las miniaturas
+      thumbnails.forEach((thumbnail, index) => {
+        thumbnail.addEventListener("click", function () {
+          currentIndex = index;
+          updateImage(index);
+
+          // Reiniciar el temporizador cuando se hace clic en una miniatura
+          clearInterval(interval);
+          interval = setInterval(nextImage, 5000);
+        });
+      });
+    });
+  </script>
+</div>

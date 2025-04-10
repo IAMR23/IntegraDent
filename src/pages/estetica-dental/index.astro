@@ -1,0 +1,25 @@
+---
+import Cases from "../../components/Cases.astro";
+import Footer from "../../components/Footer.astro";
+import ListaServices from "../../components/ListaServices.astro";
+import NavBar from "../../components/NavBar.astro";
+import Whatsapp from "../../components/Whatsapp.astro";
+import Layout from "../../layouts/Layout.astro";
+import { casos } from "../../const/Cases/constCasesDentalStetic";
+---
+
+<Layout title="Estetica Dental">
+  <NavBar />
+
+  <div class="py-14 bg-black"></div>
+
+  <div class="flex justify-center items-center">
+    <Cases title={"Estética Dental"} casos={casos} />
+    <div class="">
+      <ListaServices />
+    </div>
+  </div>
+
+  <Whatsapp />
+  <Footer />
+</Layout>

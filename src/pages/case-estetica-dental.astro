@@ -1,0 +1,27 @@
+---
+import Cases from "../components/Cases.astro";
+import Footer from "../components/Footer.astro";
+import ListaServices from "../components/ListaServices.astro";
+import NavBar from "../components/NavBar.astro";
+import Whatsapp from "../components/Whatsapp.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Estetica Dental">
+  <NavBar />
+
+  <div class="p-14 bg-black"></div>
+
+  <div class="w-full py-14 md:px-8">
+    <div class="flex flex-col md:flex-row items-center">
+      <div class="flex flex-1 justify-center items-center gap-2">
+        <Cases />
+      </div>
+
+      <ListaServices />
+    </div>
+  </div>
+
+  <Whatsapp />
+  <Footer />
+</Layout>
