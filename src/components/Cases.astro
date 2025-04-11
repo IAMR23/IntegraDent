@@ -7,22 +7,24 @@ const { title, casos } = Astro.props;
 
   <div class="services-grid px-4" id="services-grid">
     {
-      casos.map((casos: any) => (
-        <div class="service-card">
-          <a href={casos.link}>
-            <div class="service-image">
-              <img src={casos.img} alt={casos.title} />
-              <div class="service-overlay">
-                <h3>{casos.title}</h3>
+      casos.map((caso: any) => {
+        return (
+          <div class="service-card">
+            <a href={caso.link}>
+              <div class="service-image">
+                <img src={caso.img} alt={caso.title} />
+                <div class="service-overlay">
+                  <h3>{caso.title}</h3>
+                </div>
+                <div class="service-phone">
+                  <span class="phone-dot" />
+                  <span class="phone-number">IntegraDent</span>
+                </div>
               </div>
-              <div class="service-phone">
-                <span class="phone-dot" />
-                <span class="phone-number">IntegraDent</span>
-              </div>
-            </div>
-          </a>
-        </div>
-      ))
+            </a>
+          </div>
+        );
+      })
     }
   </div>
 
