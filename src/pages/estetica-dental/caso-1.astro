@@ -5,6 +5,7 @@ import ListaServices from "../../components/ListaServices.astro";
 import NavBar from "../../components/NavBar.astro";
 import Whatsapp from "../../components/Whatsapp.astro";
 import Layout from "../../layouts/Layout.astro";
+import { caso1 } from "../../const/Cases/case1";
 ---
 
 <Layout title="Estetica Dental">
@@ -15,7 +16,7 @@ import Layout from "../../layouts/Layout.astro";
   <div class="w-full py-16 px-4 md:px-8 overflow-hidden">
     <div class="flex flex-col md:flex-row items-center gap-12">
       <div class="flex flex-1 justify-center items-center gap-2">
-        <Gallery />
+        <Gallery casos={caso1} />
       </div>
 
       <div
