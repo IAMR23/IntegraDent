@@ -105,7 +105,7 @@ const { title } = Astro.props;
             .forEach((element) => {
               element.style.transition = "opacity 1s ease";
               element.style.opacity = "0";
-              setTimeout(() => (element.style.display = "none"), 1000);
+              setTimeout(() => (element.style.display = "none"), 500);
             });
         }, 500);
       };
