@@ -10,11 +10,13 @@ export const services = [
     img: "./cirugiaDental.webp",
     title: "Cirugía Dental",
     link: "/cirugia-dental",
+    icono: "/icon/icoCirugiaDental.webp",
   },
   {
     img: "./radiografia.webp",
     title: "Radiografías y Tomografías Dentales",
     link: "/radiografias",
+    icono: "/icon/icoRadiografia.webp",
   },
   {
     img: "./rehabilitacion.webp",
@@ -22,8 +24,18 @@ export const services = [
     link: "/rehabilitacion",
     icono: "/icon/icoOrtodoncia.webp",
   },
-  { img: "./bruxismo.webp", title: "Bruxismo", link: "/bruxismo" },
-  { img: "./carillas.webp", title: "Carillas", link: "/carillas" },
+  {
+    img: "./bruxismo.webp",
+    title: "Bruxismo",
+    link: "/bruxismo",
+    icono: "/icon/icoBruxismo.webp",
+  },
+  {
+    img: "./carillas.webp",
+    title: "Carillas",
+    link: "/carillas",
+    icono: "/icon/icoCirugiaDental.webp",
+  },
   {
     img: "./diseñoSonrisa.webp",
     title: "Diseño de Sonrisa",
@@ -34,6 +46,7 @@ export const services = [
     img: "./extraccionTerceros.webp",
     title: "Extracción de Muelas del Juicio",
     link: "/extraccion",
+    icono: "/icon/icoExtraccionMuelas.webp",
   },
   {
     img: "./implante1.webp",
@@ -47,9 +60,24 @@ export const services = [
     link: "/odontepediatria",
     icono: "/icon/icoOdontopediatria.webp",
   },
-  { img: "./odontologia.webp", title: "Odontología", link: "/odontologia" },
-  { img: "./allonfour.webp", title: "All on Four", link: "/allonfour" },
-  { img: "./protesisFija.webp", title: "Protesis Fija", link: "/protesis" },
+  {
+    img: "./odontologia.webp",
+    title: "Odontología",
+    link: "/odontologia",
+    icono: "/icon/icoOdontologia.webp",
+  },
+  {
+    img: "./allonfour.webp",
+    title: "All on Four",
+    link: "/allonfour",
+    icono: "/icon/icoAllOnFour.webp",
+  },
+  {
+    img: "./protesisFija.webp",
+    title: "Protesis Fija",
+    link: "/protesis",
+    icono: "/icon/icoProtesisFija.webp",
+  },
   /* Nuevos 21-03-2025 */
   {
     img: "./Ortodoncia.webp",
@@ -62,5 +90,6 @@ export const services = [
     img: "./Ortodoncia.webp",
     title: "Servicio de Docencia",
     link: "/servicio-docencia",
+    icono: "/icon/icoServicioDocencia.webp",
   },
 ];

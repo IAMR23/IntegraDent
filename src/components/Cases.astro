@@ -13,13 +13,13 @@ const { title, casos } = Astro.props;
             <a href={caso.link}>
               <div class="service-image">
                 <img src={caso.img} alt={caso.title} />
-                <div class="service-overlay">
+                {/*   <div class="service-overlay">
                   <h3>{caso.title}</h3>
-                </div>
-                <div class="service-phone">
+                </div> */}
+                {/*     <div class="service-phone">
                   <span class="phone-dot" />
-                  <span class="phone-number">IntegraDent</span>
-                </div>
+                  <span class="phone-number">{caso.title}</span>
+                </div> */}
               </div>
             </a>
           </div>

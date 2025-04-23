@@ -98,7 +98,6 @@ const allServices: (ServiceItem & { initiallyVisible: boolean })[] = [
 const {
   sectionTitle = "Servicios",
   sectionSubtitle = "Ofrecemos los siguientes servicios para tu salud dental",
-  brandName = "SonrisasRealesIntegradent",
   initialVisibleCount = 6,
   loadMoreCount = 3,
 } = Astro.props;
@@ -122,12 +121,12 @@ const {
                 alt={service.title}
                 loading={index < 6 ? "eager" : "lazy"}
               />
-              <div class="service-overlay">
+              {/*          <div class="service-overlay">
                 <h3>{service.title}</h3>
-              </div>
-              <div class="service-phone">
+              </div> */}
+              <div class="service-phone ">
                 <span class="phone-dot" />
-                <span class="phone-number">{brandName}</span>
+                <span class="phone-number font-bold ">{service.title}</span>
               </div>
             </div>
           </a>
@@ -264,7 +263,6 @@ const {
 
   .phone-number {
     font-size: 0.8rem;
-    font-weight: 600;
   }
 
   .hidden-service {

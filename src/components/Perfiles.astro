@@ -6,12 +6,12 @@ const perfiles = [
     img: "./DraAlexandraFierro1.webp",
   },
   {
-    nombre: "Dra. Andrea Silva",
+    //nombre: "Dra. Andrea Silva",
     especialidad: "Ortodoncista",
     img: "./DraAndreaSilva.webp",
   },
   {
-    nombre: "Dr. Juan Francisco Silva",
+    //  nombre: "Dr. Juan Francisco Silva",
     especialidad: "Implantólogo - Periodonsista",
     img: "./juanf.webp",
   },
@@ -25,7 +25,7 @@ const perfiles = [
       {
         perfiles.map((perfil) => (
           <div class="swiper-slide">
-            <div class="testimonial flex justify-center items-center flex-col">
+            <div class=" testimonial flex justify-center items-center flex-col">
               <img class="testimonial-avatar" src={perfil.img} />
               <p class="testimonial-quote">{perfil.especialidad}</p>
               <span class="text-yellow-500 font-bold">{perfil.nombre}</span>
@@ -49,7 +49,7 @@ const perfiles = [
     background-attachment: fixed;
     background-size: cover;
     position: relative;
-    padding: 100px 0;
+    padding: 60px 0;
   }
 
   .testimonial-carousel-container:before {
@@ -81,7 +81,7 @@ const perfiles = [
   .testimonial-avatar {
     border-radius: 50%;
     margin-bottom: 20px;
-    height: 150px;
+    height: 300px;
   }
 
   .testimonial-quote {
